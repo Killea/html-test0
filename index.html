@@ -257,6 +257,7 @@
 
       function fetchJoke()
       {
+        // how to use the fetch api: https://www.javascripttutorial.net/javascript-fetch-api/
         fetch("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single")
         .then(response => response.json())
         .then(data => {
