@@ -202,6 +202,19 @@
           <button type="button" style="margin-top: 20px" class="btn btn-primary" onclick="changeText()">
             Change the 1st button's text
           </button>
+         <div>
+          <button type="button" style="margin-top: 20px" class="btn btn-secondary" onclick="fetchJoke()">
+            Fetch a joke
+          </button>
+         </div>
+        
+
+          <textarea
+          style="margin-top: 10px"
+          id="joke-text"
+          class="form-control"
+          rows="5"
+        ></textarea>
         </div>
       </div>
     </main>
@@ -241,7 +254,17 @@
           changed = true;
         }
       }
-      
+
+      function fetchJoke()
+      {
+        fetch("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single")
+        .then(response => response.json())
+        .then(data => {
+          console.log(JSON.stringify(data));
+          document.getElementById("joke-text").value = data.joke;
+        })
+      }
+    
     </script>
   </body>
 </html>
